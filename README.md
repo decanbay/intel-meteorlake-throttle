@@ -49,18 +49,18 @@ I have aimed for the following max freqs
 
 | Max Cap | Core Type        | Count |
 | ------- | ---------------- | ----- |
-| 3.5 GHz | P-cores @4.5 GHz | 6     |
-| 3.8 GHz | P-cores @4.8 GHz | 2     |
-| 2.8 GHz | E-cores @3.8 GHz | 8     |
-| 2.2 GHz | E-cores @2.5 GHz | 2     |
+| 3.5 GHz | P-cores @4.8 GHz | 2     |
+| 3.3 GHz | P-cores @4.5 GHz | 6     |
+| 3.0 GHz | E-cores @3.8 GHz | 8     |
+| 2.5 GHz | E-cores @2.5 GHz | 2     |
 
 You can directly run this script which will not persist after reboot
 ```bash
 declare -A cpu_caps=(
-  [4800000]=3800   # cap big P-cores to 3.8 GHz
-  [4500000]=3500   # cap mid P-cores to 3.5 GHz
-  [3800000]=2800   # cap fast E-cores to 2.8 GHz
-  [2500000]=2200   # cap slow E-cores to 2.2 GHz
+  [4800000]=3500   # cap big P-cores to 3.8 GHz
+  [4500000]=3300   # cap mid P-cores to 3.5 GHz
+  [3800000]=3000   # cap fast E-cores to 2.8 GHz
+  [2500000]=2500   # cap slow E-cores to 2.2 GHz
 )
 
 for cpu in /sys/devices/system/cpu/cpu[0-9]*; do
@@ -101,10 +101,10 @@ paste the previous script inside, ie
 ```bash
 #!/bin/bash
 declare -A cpu_caps=(
-  [4800000]=3800   # cap big P-cores to 3.8 GHz
-  [4500000]=3500   # cap mid P-cores to 3.5 GHz
-  [3800000]=2800   # cap fast E-cores to 2.8 GHz
-  [2500000]=2200   # cap slow E-cores to 2.2 GHz
+  [4800000]=3500   # cap big P-cores to 3.8 GHz
+  [4500000]=3300   # cap mid P-cores to 3.5 GHz
+  [3800000]=3000   # cap fast E-cores to 2.8 GHz
+  [2500000]=2500   # cap slow E-cores to 2.2 GHz
 )
 
 for cpu in /sys/devices/system/cpu/cpu[0-9]*; do
