@@ -99,6 +99,7 @@ sudo nano /usr/local/bin/set-cpu-caps.sh
 ```
 paste the previous script inside, ie
 ```bash
+#!/bin/bash
 declare -A cpu_caps=(
   [4800000]=3800   # cap big P-cores to 3.8 GHz
   [4500000]=3500   # cap mid P-cores to 3.5 GHz
